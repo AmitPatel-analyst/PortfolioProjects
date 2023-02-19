@@ -1,7 +1,8 @@
 # International-Debt-Statistics-Analysis-
-In this project, we are going to analyze international debt data collected by The World Bank. The dataset contains information about the amount of debt (in USD) owed by developing countries across several categories. We are going to find the answers to questions like:
-
-What is the total amount of debt that is owed by the countries listed in the dataset? Which country owns the maximum amount of debt and what does that amount look like? What is the average amount of debt owed by countries across different debt indicators?
+In this project, I am going to analyze international debt data collected by The World Bank. The dataset contains information about the amount of debt (in USD) owed by developing countries across several categories. We are going to find the answers to questions like:
+1) What is the total amount of debt that is owed by the countries listed in the dataset? 
+2) Which country owns the maximum amount of debt and what does that amount look like? 
+3) What is the average amount of debt owed by countries across different debt indicators?
 In this project, we are going to use DISTINCT, COUNT, SUM, ROUND, MAX, MIN, GROUPBY 
 
 --The first line of code connects us to the international_debt database where the table international_debt is residing. 
