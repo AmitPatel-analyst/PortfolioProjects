@@ -78,7 +78,7 @@ select distinct
       order by 1;
 ```   
 ![image](https://user-images.githubusercontent.com/120770473/220059898-a315859a-269d-4315-8f97-709f1863b373.png)
-### Ques-4 Which nation has participated in all of the olympic games?
+### Ques-4 Which country has participated in all of the olympic games?
 : For this query , I used a CTE to create multiple temporary result sets like 1st find a Total Olymics games held till last date . 2nd find the all Countries who participated olympics game and last use a JOIN to display only those countries name who have played all Olympics games till last date  by matching the values of total_olympics_games column of Total Games Table and total_participated_games column of countries_participated.
  ```sql
 with tot_games as 
@@ -93,7 +93,7 @@ all_countries as
     group by games,nr.region
     ),
 countries_participated as
-    (select country,count(1) as total_participated_games
+    (select country,count(1) as all_participated_games
     from all_countries
     group by country
     )
@@ -101,6 +101,98 @@ countries_participated as
 select cp.* 
 from countries_participated as cp 
 join tot_games as tg
-on cp.total_participated_games=tg.total_olympics_games;
+on cp.all_participated_games=tg.total_olympics_games;
 ```
-![image](https://user-images.githubusercontent.com/120770473/220060557-33acc892-0c5b-4edb-90ce-a8e81fdbc129.png)
+![image](https://user-images.githubusercontent.com/120770473/223629512-34da0b38-1db0-482b-a695-a7b09f1a264d.png)
+
+### Ques-5 Identify the sports which were played in all summer olympics.
+: With the help of CTE I find total no of distinct summer olympics games(Ans. Total 29 Games). 
+then after count the total Summer olympics games played for each Sports by Grouping.
+and last Join both the result sets on matching of Total_summer_games column and no_of_games column to fetch only that Sports who has Played total 29 summer olympics games .
+```sql
+with t1 as 
+	(select count(distinct Games) as Total_summer_games 
+	from olympics_history
+	where Season = 'Summer'),
+t2 as
+	(select  Sport,count(distinct Games) as no_of_games
+	from olympics_history
+	where Season = 'Summer' 
+	group by Sport
+	)
+select * 
+	from t2 join t1
+	on t2.no_of_games=t1.Total_summer_games;
+```
+Another approach to solve this query is by Subquery
+```sql	
+SELECT A.*
+	FROM
+	(
+	select  Sport,count(distinct Games) as Total_summergames
+	from olympics_history
+	where Season = 'Summer' 
+	group by Sport
+) A
+WHERE A.Total_summergames = (select count(distinct Games) as Total_summer_games 
+	from olympics_history
+	where Season = 'Summer');
+```
+![image](https://user-images.githubusercontent.com/120770473/223631994-196f1580-a764-46b8-863e-f42e05a6cd70.png)
+### Ques-6 Which Sports were just played only once in the entire olympics?
+
+```sql
+with t2 as
+	(select distinct Sport,Games
+	from olympics_history
+	),
+t3 as 
+	(select Sport,count(Games) as Games_Played_Once
+	from t2
+	group by Sport
+	having count(Games) = 1)
+
+	 select t3.Sport,t2.Games as Olympics_games ,Games_Played_Once
+	 from t3 join t2 
+	 on t3.Sport=t2.Sport;
+```
+![image](https://user-images.githubusercontent.com/120770473/223632810-30f05a56-8ba8-4463-b16e-2253ddfc97f2.png)
+### Ques-7 Fetch the total no of sports played in each olympic games.
+: The goal is a table that shows how many Sports have played on each Olympic games. and sort the rows by latest Games played . 
+```sql
+SELECT Games,count(distinct Sport) as no_of_sports
+FROM olympics_history
+group by Games
+order by 1 desc;
+```
+![image](https://user-images.githubusercontent.com/120770473/223651858-99d5c229-cc2b-4f72-90f4-e3a66bdff1f3.png)
+![image](https://user-images.githubusercontent.com/120770473/223651937-7db7e3f2-8a8e-4355-9d7d-11e065b8f64d.png)
+![image](https://user-images.githubusercontent.com/120770473/223652132-e0ea78f3-5db4-4ddd-b54f-73d6a827688b.png)
+
+### Ques-8 Fetch oldest athletes to win a gold medal.
+:To display the Oldest athletes who won the gold medal on any Olympics games or any Sports .
+First I Replaced NA Value with "0" on that records where Data is missing on Age Column by using CASE with the age column
+and then filter the records by Gold Medal and then Store in Temporary result sets named "temp". then using Ranking Functions Rank() 
+,I fetched only those records whose age is highest among the Athletes. 
+```sql
+with temp as
+            (select 	name,sex,
+			cast(case when age = 'NA' then '0' else age end as int) as age
+			,team,games,city,sport
+			,event,medal
+            from	olympics_history
+			where Medal = 'gold'),
+       ranking	as
+            (select	*
+			,rank() over(order by age desc) as rnk
+            from	temp
+            )
+	     select	name,sex,age,team,games,city,sport,event,medal
+	     from	ranking
+	     where	rnk = 1;
+```
+![image](https://user-images.githubusercontent.com/120770473/223654078-3ff5d303-90b9-4b35-9843-4d9247ee091e.png)
+
+
+
+
