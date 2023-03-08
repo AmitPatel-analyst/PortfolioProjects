@@ -10,7 +10,9 @@ There are total 2 Csv files "athlete_events.csv" and "noc_regions.csv" and I imp
 
 I performed intermediate to advanced SQL queries (Subqueries, CTE, Joins) for better analysis.
 First and foremost, I wanted to study the dataset to get answers to the following questions: How many columns and rows are in the dataset? Ans:- ~271K Rows and 15 Columns
-How many datasets are there? Ans:- 2 datasets
+
+How many total datasets are there? Ans:- 2 datasets
+
 ```sql
 select count(1) as Total_rows from  olympics_history;
 ```
@@ -25,14 +27,16 @@ where object_id = (
 ```
 ![image](https://user-images.githubusercontent.com/120770473/220054633-fc379b63-483b-4aa1-b0aa-96821aabac74.png)
 --------------------------------------------------------------------------------------------------
-Derived answers of some 20 questions by writing sql queries.
-### Ques-1 How many olympics games have been held?
+Derived answers of some questions by writing sql queries.
+### Ques-1 How many olympics games have been held? 
+: For this query I used 2 commands ie.distinct Command to get rid of any duplicate values and then Count of That result to show the number of Total Olympics games.
 ```sql
 select count(distinct games) as total_olympics_games 
-from olympics_history
+from olympics_history;
 ```
 ![image](https://user-images.githubusercontent.com/120770473/220057463-efee6918-e4c8-4ca5-a756-5af0542cfc43.png)
 ### Ques-2 Mention the total no of nations who participated in each olympics game
+: Use a JOIN to display a table showing Countries who participated olympics game and then Count All countries with respect to each Olympic games By Grouping .
 ```sql
 WITH ALL_COUNTRIES AS 
 (
@@ -44,17 +48,19 @@ WITH ALL_COUNTRIES AS
 	SELECT		GAMES,COUNT(1) AS TOTAL_NATIONS_PARTICIPATED
 	FROM		ALL_COUNTRIES
 	GROUP BY	GAMES
-	ORDER BY	GAMES	
+	ORDER BY	GAMES	;
 ```
 ![image](https://user-images.githubusercontent.com/120770473/220058410-39520caa-ba15-4cdc-b392-a041728ef93c.png)
 ![image](https://user-images.githubusercontent.com/120770473/220058581-06ba4173-30aa-4ac8-aa12-66ca6178bf22.png)
 ### Ques-3 Which year saw the highest and lowest no of countries participating in olympics?
+: For this query First I need to know the Total Countries Participated for each Olympics Games , here I used CTE to create a Temporary result sets. and then I used Window function "First_value" and Over() function  to fetch both Lowest Participation Country name and Highest Participation Country name by using total_nations_participated Column and also fetch their respective Olympic games name and last I merge the Olympic games name with Number of Participation using "Concat" Command.
 ```sql
-with all_countries as (
-select Games,nr.region
-from olympics_history as oh
-join Olympics_history_noc_regions nr on oh.NOC=nr.NOC
-group by games,nr.region
+with all_countries as 
+(
+	select 	Games,nr.region
+	from 	olympics_history as oh
+	join 	Olympics_history_noc_regions nr on oh.NOC=nr.NOC
+	group by games,nr.region
 ),
 tot_countries as(
 select Games,count(1) as total_nations_participated
@@ -73,6 +79,7 @@ select distinct
 ```   
 ![image](https://user-images.githubusercontent.com/120770473/220059898-a315859a-269d-4315-8f97-709f1863b373.png)
 ### Ques-4 Which nation has participated in all of the olympic games?
+: For this query , I used a CTE to create multiple temporary result sets like 1st find a Total Olymics games held till last date . 2nd find the all Countries who participated olympics game and last use a JOIN to display only those countries name who have played all Olympics games till last date  by matching the values of total_olympics_games column of Total Games Table and total_participated_games column of countries_participated.
  ```sql
 with tot_games as 
     (
@@ -94,6 +101,6 @@ countries_participated as
 select cp.* 
 from countries_participated as cp 
 join tot_games as tg
-on cp.total_participated_games=tg.total_olympics_games
+on cp.total_participated_games=tg.total_olympics_games;
 ```
 ![image](https://user-images.githubusercontent.com/120770473/220060557-33acc892-0c5b-4edb-90ce-a8e81fdbc129.png)
