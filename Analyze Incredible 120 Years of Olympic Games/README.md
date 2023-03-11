@@ -192,6 +192,33 @@ with temp as
 	     where	rnk = 1;
 ```
 ![image](https://user-images.githubusercontent.com/120770473/223654078-3ff5d303-90b9-4b35-9843-4d9247ee091e.png)
+### Ques-9 Find the Total Athletes participated in the olympic games?
+: Using Distinct Command and Count function we can display the total athletes Participated.
+```sql
+select count(distinct Name)
+	from olympics_history;
+```
+![image](https://user-images.githubusercontent.com/120770473/224466671-41f2050c-8490-4c4f-a7ff-ff89f45be4c4.png)
+### Ques-10 Find the Ratio of male and female athletes participated in all olympic games?
+```sql
+with t1 as
+        	(select sex, count(1) as cnt
+        	from olympics_history
+        	group by sex),
+        t2 as
+        	(select *, row_number() over(order by cnt) as rn
+        	 from t1),
+        female_cnt as
+        	(select cnt from t2	where rn = 1),
+        male_count as
+        	(select cnt from t2	where rn = 2)
+
+	select format(round(male_count.cnt*1.0/female_cnt.cnt,2),'f2') as ratio
+	from female_cnt cross join male_count;
+```
+![image](https://user-images.githubusercontent.com/120770473/224466748-89da22a8-7f99-46e9-8c5a-aa315f6b719f.png)
+### Ques-11  Find the top 5 athletes who have won the most gold medals? (we also consider those athletes who have same number of Gold Medals )
+
 
 
 
