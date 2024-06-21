@@ -106,6 +106,22 @@ This structure allows for a normalized database design, enabling efficient queri
   - Created an Age Group Bucket Based on Age value e.g. 20s, 30s, 40s, 50s, 60s, 70s
 
 ## Data Model:
-![image]()
+![image](https://raw.githubusercontent.com/AmitPatel-analyst/PortfolioProjects/main/Medicine%20Sales%20Performance%20Report/Data%20modeling.jpg)
 
-A simple Star Schema format was used to model the data in Power BI. This model contains a central fact table titled "Customer" in addition to "Agegroup", "Creditscoregroup", "Tenuregroup" as dimensions.
+A simple Star Schema format was used to model the data in Power BI. This model contains a central fact table titled "Fct_Sales" in addition to "Lookup_Customer", "Lookup_Drug", "Lookup_Date" as dimensions.
+
+## Dashboard Overview:
+ 
+I have developed a comprehensive Power BI dashboard report consisting of three pages, each serving a distinct purpose to provide valuable insights from the medicine sales data.  
+
+![Drug PBI report Page 1](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/33314b03-26fe-4b7b-a5ad-afd211a509b0)     
+
+**Page 1:- Top/Bottom Analysis**     
+    The first report page provides a comprehensive overview of Medicine's sales performance with key performance indicators to monitor the following metrics: sales, profit, cogs and quantity sold. Custom KPI card visuals reflect the nominal and percent differences between the Last years and months. The date slicer enables dynamic filtering of the KPI. The Field parameter allows for the user to toggle between each sales metric to more closely monitor metric performance across the entire date selection period. Another field parameter allows the user to toggle between top and bottom selections based on the number of highlighted bars.
+
+![Drug PBI report Page 2](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/a3455709-24d0-41fe-a738-76c0e9761840)
+
+**Page 2:- Customer Analysis** 
+    
+    
+
