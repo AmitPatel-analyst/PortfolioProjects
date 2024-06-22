@@ -117,11 +117,62 @@ I have developed a comprehensive Power BI dashboard report consisting of three p
 ![Drug PBI report Page 1](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/33314b03-26fe-4b7b-a5ad-afd211a509b0)     
 
 **Page 1:- Top/Bottom Analysis**     
-    The first report page provides a comprehensive overview of Medicine's sales performance with key performance indicators to monitor the following metrics: sales, profit, cogs and quantity sold. Custom KPI card visuals reflect the nominal and percent differences between the Last years and months. The date slicer enables dynamic filtering of the KPI. The Field parameter allows for the user to toggle between each sales metric to more closely monitor metric performance across the entire date selection period. Another field parameter allows the user to toggle between top and bottom selections based on the number of highlighted bars.
+    The first report page provides a comprehensive overview of Medicine's sales performance with key performance indicators to monitor the following metrics: sales, profit, cogs and quantity sold. Custom KPI card visuals reflect the nominal and percent differences between the Last years and months. The date slicer enables dynamic filtering of the KPI. The field parameter allows the user to toggle between each sales metric to monitor metric performance more closely across the entire date selection period. Another field parameter allows the user to toggle between top and bottom selections based on the number of highlighted bars.
 
 ![Drug PBI report Page 2](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/a3455709-24d0-41fe-a738-76c0e9761840)
 
-**Page 2:- Customer Analysis** 
     
+**Page 2:- Customer Analysis**      
+    The second report page presents customer-related insights and demographic analysis, providing detailed information about customer segments and demographic distribution. The key elements of this page are:    
+
+#### **Key Performance Indicators (KPIs):**    
+    
+Important KPIs are displayed at the top, offering a quick overview of customer-related metrics:    
+
+**- Total Customers:** The total number of unique customers.   
+**- Total Medicines:** The total number of unique medicines.     
+**- Total Transactions:** The total number of transactions that happened to buy a medicine.     
+**- Total Countries:** The total number of unique Countries.   
+**- Male Customers & Female Customers:** The total number of Male & Female customers.    
+**- Average Revenue per Customer:** The average revenue generated per customer.    
+**- Total Revenue:** The total revenue generated.   
+
+#### **Sales by Country (Map Chart):**     
+A map chart is provided to display sales distribution by country. Users can interact with this chart to view the top two major contributions to revenue.
+    
+#### **Revenue by Gender (Doughnut Chart):**     
+This chart shows the percentage of revenue contributed by each gender. It helps in understanding gender-wise revenue distribution and identifying key customer segments.    
+
+#### **Revenue by Day (Column Chart):**     
+This chart shows the revenue contributed by each day of the week. It helps in understanding Day-wise revenue distribution and identifying Peak Sales Days. 
+
+#### **Revenue Distribution (Bubble Chart):**   
+The bubble chart illustrates the daily and weekly revenue distribution. Each bubble represents a day's revenue, with its size indicating the magnitude of the revenue generated.   
+
+**Page 3:- Medicine Details**      
+    The third report page displays the details of the medicine, presenting each metric and comparing it against the previous year and Profit margin %. Users can also search for the name using a custom visual( Text filter visual) from the list.   With the help of Drill-through functionality users can further see the performance of each medicine.   
+    
+## Conclusion:        
+The detailed analysis of the Medicine Sales Performance Report provides valuable insights into revenue distribution, customer demographics, and geographical contributions. By leveraging these insights, the company can make informed strategic decisions to optimize sales performance, enhance customer satisfaction, and drive future growth.    
+
+
+## Recommendations for Improving Sales Performance
+
+### Market Analysis
+
+Conduct a detailed market analysis to understand the factors contributing to the sales peak in 2021 and the subsequent decline. Identifying these factors will help in strategizing future sales and marketing efforts.
+
+### Targeted Marketing
+
+Implement targeted marketing campaigns in Canada and Australia to further strengthen these markets. Additionally, explore new marketing strategies to increase penetration in the United States and other countries.
+
+### Sales Stability
+
+Develop strategies to stabilize sales and reduce the extreme fluctuations observed in the yearly sales summary. This could involve diversifying the product range, optimizing pricing strategies, and enhancing customer engagement.
+
+### Continuous Monitoring
+
+Regularly monitor sales performance and market trends to quickly adapt to changes and mitigate any adverse impacts on sales.
+
     
 
