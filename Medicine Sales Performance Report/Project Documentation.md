@@ -102,7 +102,7 @@ This structure allows for a normalized database design, enabling efficient queri
 ###  1. Column Profiling 
   - Given meaningful names to all columns
   - Removed columns that are not needed in my analysis
-  - Merged Firstname & lastname to make one column named Fullname
+  - Merged Firstname & Lastname to make one column named Fullname
   - Created an Age Group Bucket Based on Age value e.g. 20s, 30s, 40s, 50s, 60s, 70s
 
 ## Data Model:
@@ -114,18 +114,26 @@ A simple Star Schema format was used to model the data in Power BI. This model c
  
 I have developed a comprehensive Power BI dashboard report consisting of three pages, each serving a distinct purpose to provide valuable insights from the medicine sales data.  
 
-![Drug PBI report Page 1](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/33314b03-26fe-4b7b-a5ad-afd211a509b0)     
+![Drug PBI report Page 1](https://github.com/user-attachments/assets/09d20d3b-9f94-4eaf-88dd-da0b7b5b0651)     
 
 **Page 1:- Top/Bottom Analysis**     
-    The first report page provides a comprehensive overview of Medicine's sales performance with key performance indicators to monitor the following metrics: sales, profit, cogs and quantity sold. Custom KPI card visuals reflect the nominal and percent differences between the Last years and months. The date slicer enables dynamic filtering of the KPI. The field parameter allows the user to toggle between each sales metric to monitor metric performance more closely across the entire date selection period. Another field parameter allows the user to toggle between top and bottom selections based on the number of highlighted bars.
+    The first report page provides a comprehensive overview of Medicine's sales performance with key performance indicators to monitor the following metrics: sales, profit, cogs and quantity sold. Custom KPI card visuals reflect the nominal and percent differences between the Last years and months. The date slicer enables dynamic filtering of the KPI. The field parameter allows the user to toggle between each sales metric to monitor metric performance more closely across the entire date selection period. Another field parameter allows the user to toggle between top and bottom selections based on the number of highlighted bars.      
+ 
+### **Key Performance Indicators (KPIs):**
 
-![Drug PBI report Page 2](https://github.com/AmitPatel-analyst/PortfolioProjects/assets/120770473/a3455709-24d0-41fe-a738-76c0e9761840)
+**- Revenue:** Total income generated from sales. The current value is $4M for February 2021, showing a 21.1% decrease from the previous month. This KPI indicates overall business performance and growth.
+**- COGS:** Total money spent on producing medicines. The current value is $753K for February 2021, showing a 23.5% decrease from the previous month. This KPI indicates overall production efficiency.       
+**- Quantity:** Total orders processed. The current value is 16K for February 2021, showing a 16.3% decrease from the previous month. This KPI reflects customer demand and operational volume.    
+**- Profit** Revenue minus costs. The current value is $3M for February 2021, showing a 20.6% decrease from the previous month. This KPI indicates overall financial health and sustainability.    
+
+
+![Drug PBI report Page 2](https://github.com/user-attachments/assets/cfbb67fb-a991-494a-bd1f-fe8a3dfac574)
 
     
 **Page 2:- Customer Analysis**      
     The second report page presents customer-related insights and demographic analysis, providing detailed information about customer segments and demographic distribution. The key elements of this page are:    
 
-#### **Key Performance Indicators (KPIs):**    
+### **Key Performance Indicators (KPIs):**    
     
 Important KPIs are displayed at the top, offering a quick overview of customer-related metrics:    
 
@@ -150,8 +158,13 @@ This chart shows the revenue contributed by each day of the week. It helps in un
 The bubble chart illustrates the daily and weekly revenue distribution. Each bubble represents a day's revenue, with its size indicating the magnitude of the revenue generated.   
 
 **Page 3:- Medicine Details**      
-    The third report page displays the details of the medicine, presenting each metric and comparing it against the previous year and Profit margin %. Users can also search for the name using a custom visual( Text filter visual) from the list.   With the help of Drill-through functionality users can further see the performance of each medicine.   
+    The third report page displays the details of the medicine, presenting each metric and comparing it against the previous year and Profit margin %. Users can also search for the name using a custom visual( Text filter visual) from the list.   With the help of Drill-through functionality users can further see the performance of each medicine.        
     
+![Drug PBI report Page 3](https://github.com/user-attachments/assets/15055603-e3c8-4946-9002-663555495dfe)
+
+![Drug PBI report Page 4](https://github.com/user-attachments/assets/dac11f0f-b6d9-4be1-97d3-4e98b6f2ed66)
+
+       
 ## Conclusion:        
 The detailed analysis of the Medicine Sales Performance Report provides valuable insights into revenue distribution, customer demographics, and geographical contributions. By leveraging these insights, the company can make informed strategic decisions to optimize sales performance, enhance customer satisfaction, and drive future growth.    
 
