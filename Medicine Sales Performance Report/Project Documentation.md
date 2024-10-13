@@ -2,7 +2,7 @@
 This report provides comprehensive insights and analysis of the sales performance of medicine sold across all 6 countries worldwide from Jan 2020 to Feb 2024. 
 
 ### Created and Analyzed by: Amit Patel @Data Analyst [LinkedIn](https://www.linkedin.com/in/amit-patel999/)
-### Live Dashboard [Link]()
+### Live Dashboard [Link](https://app.powerbi.com/view?r=eyJrIjoiNmE4MDJlMjYtZDFhYi00NDQyLWI1MjYtNTE4NzVmMjkyOWNlIiwidCI6IjA3ZjAxN2QwLWJiNzEtNDliYS1iMTMxLTJkZDkyZWQ3MWE3MiJ9)
 
 ## Project Objective:    
 The objective of this project is to provide the higher management of the pharmaceutical company with comprehensive insights into Medicine sales performance over the specified reporting period.
